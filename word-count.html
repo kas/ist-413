@@ -31,7 +31,8 @@
         <input type="text" class="datepicker">
         <p>End date for Word Count.</p>
         <input type="text" class="datepicker">
-        <div id='chart'>
+        <a class="waves-effect waves-light btn" href="word-countGraph.html">Add</a>
+        <div id='WCchart'>
 
         
     </div>
@@ -41,31 +42,7 @@
     <script src="javascript/c3-0.6.8/c3.min.js"></script>
     <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems);
-    });
 
-    var chart = c3.generate({
-        data: {
-            columns: [
-                ['data1', 30, 200, 100, 400, 150, 250],
-            ],
-            types: {
-                data1: 'bar',
-            }
-        },
-        axis: {
-            rotated: true,
-            x: {
-                type: 'category',
-                categories: ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6']
-            }
-        }
-
-    });
-
-              
 
     </script>
 </body>

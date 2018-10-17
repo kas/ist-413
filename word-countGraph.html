@@ -6,7 +6,6 @@
     <title>Tuber</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css.css">
-    <link rel="stylesheet" href="comment-sentiment.css">
         <!-- Load c3.css -->
     <link href="javascript/c3-0.6.8/c3.css" rel="stylesheet">
 </head>
@@ -25,13 +24,14 @@
         </nav>
     </div>
     <div class = "container">
-        <h1>Comment Sentiment Analysis</h1>
-
-         <p>Start date for Comment Sentiment.</p>
+        <h1>Word Count</h1>
+         <p>Find the most used words that are not stopwords. Stopwords are commonly used words like: the, about, into</p>
+         <hr>
+         <p>Start date for Word Count.</p>
         <input type="text" class="datepicker">
-        <p>End date for Comment Sentiment.</p>
+        <p>End date for Word Count.</p>
         <input type="text" class="datepicker">
-        <a id="btnAddColumn" class="waves-effect waves-light btn">Add</a>
+        <a class="waves-effect waves-light btn" href="word-countGraph.html">Add</a>
         <hr>
         <div id='chart'>
 
@@ -48,36 +48,24 @@
     var instances = M.Datepicker.init(elems);
     });
 
-              
     var chart = c3.generate({
-        bindto:'#chart',
         data: {
             columns: [
+                ['Word_Frequency_In_Percents_during_1_1_2017_to_12_31_2017', 15, 14, 13, 13, 7, 2]
             ],
-            type: 'line'
-        },
-        regions: [
-            {axis: "y", end: -40, class:'regionY'},
-            {axis: "y", start:40, end:40, class:'regionY2'},
-            {axis: "y", start: 40, class:'regionY3'}
-
-        ],
-        bar: {
-            width: {
-                ratio: 0.5 // this makes bar width 50% of length between ticks
+            types: {
+                Word_Frequency_In_Percents_during_1_1_2017_to_12_31_2017: 'bar',
             }
-            // or
-            //width: 100 // this makes bar width 100px
+        },
+        axis: {
+            rotated: true,
+            x: {
+                type: 'category',
+                categories: ['video', 'film', 'like', 'looks', 'just', 'see']
+                }
         }
     });
 
-    document.getElementById("btnAddColumn").addEventListener('click', e=>{
-        chart.load({
-            columns: [
-                 ['comment ID# during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
-            ]
-        });
-    }, 1000);
     </script>
 </body>
 
