@@ -4,3 +4,15 @@ h1 {
 h2 {
     font-size: 2em;
 }
+h3 {
+    font-size: 1.5em;
+}
+
+.piecharts {
+    width: 350px;
+}
+
+.barcharts {
+    width: 800 px;
+    height: 300 px;
+}
