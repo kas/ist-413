@@ -16,45 +16,82 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="">Your Account</a></li>
                     <li><a href="your-videos.html">Your Videos</a></li>
-                    <li><a href="">Recent Analytics</a></li>
+                    <li><a href="recent-analytics-videos.html">Recent Analytics</a></li>
                 </ul>
             </div>
         </nav>
     </div>
     <div class="container">
         <h1>Recent Analytics</h1>
-        <div class="col s12">
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img height="200" width="200" src="images/thanos-dancing.jpg">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <h3>Analysis of: Thanos dancing</h3>
-                        <p align="right">Analysis done on: 10/13/2018</p>
-                    </div>
-                    <div class="card-action">
-                        <a class="waves-effect waves-light btn" href="old-analytics.html">View Analytics</a>
+        <div class="row">
+            <div class="col s6">
+                <div class="card medium">
+                    <div class="card-content center-align">
+                            <h2>Analysis of Thanos Dancing</h2>
+                            <p><b>Analysis done on:</b> 13/10/2018</p>
+                            <p><b>Start date:</b> 6/10/2018</p>
+                            <p><b>End date:</b> 13/10/2018</p>
+                            <img height="200" width="200" src="images/thanos-dancing.jpg">
                     </div>
                 </div>
             </div>
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img height="200" width="200" src="images/buying-my-new-car.jpg">
-                </div>
-                <div class="card-stacked">
+
+            <div class="col s6 ofset-s8">
+                <div class="card medium">
                     <div class="card-content">
-                        <h3>Analysis of: Buying my new car</h3>
-                        <p align="right">Analysis done on: 10/15/2018</p>
-                    </div>
-                    <div class="card-action">
-                        <a class="waves-effect waves-light btn" href="old-analytics.html">View Analytics</a>
+                        <p><b>Sentiment Analysis</b></p>
+                        <div class="piecharts">
+                            <canvas id="pieChart" width="100" height="100"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="barcharts">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script>
+        new Chart(document.getElementById("pieChart"),
+            {
+                "type": "doughnut",
+                "data": {
+                    "labels": ["Negative", "Positive", "neutral"],
+                    "datasets": [{
+                        "label": "Sentiment Analysis",
+                        "data": [32, 50, 18],
+                        "backgroundColor": ["rgb(255, 99, 132)", "rgb(0, 255, 128)", "rgb(128, 128, 128)"]
+                    }]
+                }
+            });
+        new Chart(document.getElementById("barChart"),
+            {
+                "type": "bar",
+                "data": {
+                    "labels": ["Funny", "Cool", "What", "See", "Film", "Over", "Missed"],
+                    "datasets":
+                        [{
+                            "label": "Frequent Unique Words ",
+                            "data": [65, 59, 45, 80, 60, 35, 10],
+                            "fill": false,
+                            "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
+                            "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
+                            "borderWidth": 1
+                        }]
+                }, "options": { "scales": { "yAxes": [{ "ticks": { "beginAtZero": true } }] } }
+            });
+    </script>
 </body>
 
 </html>
