@@ -90,10 +90,16 @@
         bindto:'#chart2',
         data: {
             columns: [
-                ['MostNegative', 30],
-                ['MostPositive', 120],
+                ['MostNegative', 5],
+                ['MostPositive', 70],
+                ['Neutral', 25],
             ],
             type : 'donut',
+            colors: {
+                MostNegative: '#FF0000',
+                MostPositive: '#0000FF',
+                Neutral: '#C0C0C0'
+            },
             onclick: function (d, i) { console.log("onclick", d, i); },
             onmouseover: function (d, i) { console.log("onmouseover", d, i); },
             onmouseout: function (d, i) { console.log("onmouseout", d, i); }
