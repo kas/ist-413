@@ -25,7 +25,22 @@
     </div>
     <div class = "container">
         <h1>Comment Sentiment</h1>
-
+        <ul class="collection with-header">
+            <li class="collection-header"><h4>Most Positive</h4></li>
+            <li class="collection-item">great job</li>
+            <li class="collection-item">wow</li>
+            <li class="collection-item">nice</li>
+            <li class="collection-item">funny!</li>
+        </ul>
+        <ul class="collection with-header">
+            <li class="collection-header"><h4>Most Negative</h4></li>
+            <li class="collection-item">you suck</li>
+            <li class="collection-item">your fakeness is disgusting</li>
+            <li class="collection-item">hate u</li>
+            <li class="collection-item">shit sucks</li>
+        </ul>
+        <div id='chart2'> 
+        </div>
          <p>Start date for Comment Sentiment.</p>
         <input type="text" class="datepicker">
         <p>End date for Comment Sentiment.</p>
@@ -75,8 +90,8 @@
         bindto:'#chart2',
         data: {
             columns: [
-                ['data1', 30],
-                ['data2', 120],
+                ['MostNegative', 30],
+                ['MostPositive', 120],
             ],
             type : 'donut',
             onclick: function (d, i) { console.log("onclick", d, i); },
@@ -84,7 +99,7 @@
             onmouseout: function (d, i) { console.log("onmouseout", d, i); }
         },
         donut: {
-            title: "Iris Petal Width"
+            title: "Overall Comment Sentiment"
         },
     });
 
@@ -94,14 +109,6 @@
                  ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
             ]
         });
-
-        donutchart.load({
-            columns: [
-                ['data1', 30],
-                ['data2', 120],            ]
-        });
-
-
     }, 1000);
     </script>
 </body>
