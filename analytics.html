@@ -16,15 +16,15 @@
             <div class="nav-wrapper">
                 <a href="home.html" class="brand-logo"><img height="60" width="90" src="images/tuber-logo.png"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="your-account.html">Your Account</a></li>
+                    <li><a href="">Your Account</a></li>
                     <li><a href="your-videos.html">Your Videos</a></li>
                     <li><a href="compare-recent-analytics-videos.html">Compare Recent Analytics</a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <div class = "container">
-        <h1>Analytics</h1>
+    <div class="container">
+        <h1>Analytics for Buying My New Car</h1>
         <ul class="collection with-header">
             <li class="collection-header"><h4>Most Positive Phrases</h4></li>
             <li class="collection-item">great job</li>
@@ -39,21 +39,18 @@
             <li class="collection-item">hate u</li>
             <li class="collection-item">shit sucks</li>
         </ul>
+        <h2 class="center-align">Overall Comment Sentiment</h2>
         <div id='donutchart'></div>
-        
-         <p>Start date for Comment Sentiment.</p>
+        <p>Start date for Below Analyses (optional)</p>
         <input type="text" class="datepicker">
-        <p>End date for Comment Sentiment.</p>
+        <p>End date for Below Analyses (optional)</p>
         <input type="text" class="datepicker">
-        <a id="btnAddColumn" class="waves-effect waves-light btn">Add</a>
-        <hr>
         <h2>Comment Sentiments of Individual Comments</h2>
         <div id='scatterchart'></div>
         <p>Sentiment Analysis is the process of determining whether a piece of writing is positive, negative or neutral. ... Sentiment analysis helps data analysts within large enterprises gauge public opinion, conduct nuanced market research, monitor brand and product reputation, and understand customer experiences.</p>
-        <h2>Most Frequently Used Unique Words</h2>
+        <h2>Most Frequently Used Words</h2>
         <div id='wordChart'></div>
-        <p>Find the most used unique words.</p> 
-
+        <p>Find the most frequently used words.</p> 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -99,8 +96,8 @@
         bindto:'#donutchart',
         data: {
             columns: [
-                ['MostNegative', 5],
-                ['MostPositive', 70],
+                ['Negative', 5],
+                ['Positive', 70],
                 ['Neutral', 25],
             ],
             type : 'donut',
@@ -112,9 +109,6 @@
             onclick: function (d, i) { console.log("onclick", d, i); },
             onmouseover: function (d, i) { console.log("onmouseover", d, i); },
             onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-        },
-        donut: {
-            title: "Overall Comment Sentiment"
         },
     });
 
@@ -147,17 +141,6 @@
             }
         }
     });
-
-
-    document.getElementById("btnAddColumn").addEventListener('click', e=>{
-        scatterchart.load({
-            columns: [
-                 ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
-            ]
-        });
-    }, 1000);
-
-
     </script>
 </body>
 
