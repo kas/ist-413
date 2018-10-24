@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Most Frequently Used Unique Words</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css/css.css">
+    <link href="javascript/c3-0.6.8/c3.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="home.html" class="brand-logo"><img height="60" width="90" src="images/tuber-logo.png"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="your-account.html">Your Account</a></li>
+                    <li><a href="your-videos.html">Your Videos</a></li>
+                    <li><a href="compare-recent-analytics-videos.html">Compare Recent Analytics</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <h1>Most Frequently Used Unique Words</h1>
+        <p>Find the most used words that are not stopwords. Stopwords are commonly used words like: the, about, into</p>
+        <hr>
+        <p>Start date for Word Count.</p>
+        <input type="text" class="datepicker">
+        <p>End date for Word Count.</p>
+        <input type="text" class="datepicker">
+        <a class="waves-effect waves-light btn" href="most-frequently-used-unique-words-graph.html">Add</a>
+        <div id='WCchart'>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="javascript/c3-0.6.8/c3.min.js"></script>
+</body>
+
+</html>

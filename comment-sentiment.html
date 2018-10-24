@@ -39,18 +39,18 @@
             <li class="collection-item">hate u</li>
             <li class="collection-item">shit sucks</li>
         </ul>
-        <div id='donutchart'></div>
-        
+        <div id='chart2'> 
+        </div>
          <p>Start date for Comment Sentiment.</p>
         <input type="text" class="datepicker">
         <p>End date for Comment Sentiment.</p>
         <input type="text" class="datepicker">
         <a id="btnAddColumn" class="waves-effect waves-light btn">Add</a>
         <hr>
-        <div id='scatterchart'></div>
-        <div id='wordChart'></div>
+        <div id='chart'>
+        <div id='chart2'>
 
-
+        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -63,8 +63,8 @@
     });
 
               
-    var scatterchart = c3.generate({
-        bindto:'#scatterchart',
+    var chart = c3.generate({
+        bindto:'#chart',
         data: {
             columns: [
             ],
@@ -76,9 +76,6 @@
             {axis: "y", start: 40, class:'regionY3'}
 
         ],
-        point: {
-            r: 9
-        },
         axis: {
             x: {
                 type: 'category',
@@ -90,7 +87,7 @@
     });
 
     var donutchart = c3.generate({
-        bindto:'#donutchart',
+        bindto:'#chart2',
         data: {
             columns: [
                 ['MostNegative', 5],
@@ -112,46 +109,13 @@
         },
     });
 
-    var chart3 = c3.generate({
-        bindto: '#wordChart',
-        color: {
-            pattern: ['#fea3aa', '#f8b88b', '#faf884', '#baed91', '#b2cefe', '#f2a2e8']
-        },
-        data: {
-            x: 'comments',
-            columns:[
-                        ['comments', 'video', 'film', 'like', 'looks', 'just', 'see'],
-                        ['Word_Frequency_In_Percents_during_1_1_2017_to_12_31_2017', 15, 14, 13, 13, 7, 2]
-                    ],
-            type: 'bar',
-           
-            color: function(inColor, data) {
-                var colors = ['#fea3aa', '#f8b88b', '#faf884', '#baed91', '#b2cefe', '#f2a2e8'];
-                if(data.index !== undefined) {
-                    return colors[data.index];
-                }
-
-                return inColor;
-            }
-        },
-        axis: {
-            rotated: true,
-            x: {
-                type: 'category'
-            }
-        }
-    });
-
-
     document.getElementById("btnAddColumn").addEventListener('click', e=>{
-        scatterchart.load({
+        chart.load({
             columns: [
                  ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
             ]
         });
     }, 1000);
-
-
     </script>
 </body>
 
