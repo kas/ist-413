@@ -26,14 +26,18 @@
     <div class="container">
         <h1>Analytics for Buying My New Car</h1>
         <ul class="collection with-header">
-            <li class="collection-header"><h4>Most Positive Phrases</h4></li>
+            <li class="collection-header">
+                <h4>Most Positive Phrases</h4>
+            </li>
             <li class="collection-item">great job</li>
             <li class="collection-item">wow</li>
             <li class="collection-item">nice</li>
             <li class="collection-item">funny!</li>
         </ul>
         <ul class="collection with-header">
-            <li class="collection-header"><h4>Most Negative Phrases</h4></li>
+            <li class="collection-header">
+                <h4>Most Negative Phrases</h4>
+            </li>
             <li class="collection-item">you suck</li>
             <li class="collection-item">your fakeness is disgusting</li>
             <li class="collection-item">hate u</li>
@@ -47,102 +51,103 @@
         <input type="text" class="datepicker">
         <h2>Comment Sentiments of Individual Comments</h2>
         <div id='scatterchart'></div>
-        <p>Sentiment Analysis is the process of determining whether a piece of writing is positive, negative or neutral. ... Sentiment analysis helps data analysts within large enterprises gauge public opinion, conduct nuanced market research, monitor brand and product reputation, and understand customer experiences.</p>
-        <h2>Most Frequently Used Words</h2>
-        <div id='wordChart'></div>
-        <p>Find the most frequently used words.</p> 
+        <p>Sentiment Analysis is the process of determining whether a piece of writing is positive, negative or
+            neutral. ... Sentiment analysis helps data analysts within large enterprises gauge public opinion, conduct
+            nuanced market research, monitor brand and product reputation, and understand customer experiences.</p>
+        <h2>Most Frequently Used Phrases</h2>
+        <div id='phraseChart'></div>
+        <p>Find the most frequently used phrases.</p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="javascript/c3-0.6.8/c3.min.js"></script>
     <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.datepicker');
-    var instances = M.Datepicker.init(elems);
-    });
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
 
-              
-    var scatterchart = c3.generate({
-        bindto:'#scatterchart',
-        data: {
-            columns: 
-            [ 
-                ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
 
-            ],
-            type: 'scatter'
-        },
-        regions: [
-            {axis: "y", end: -40, class:'regionY'},
-            {axis: "y", start:40, end:40, class:'regionY2'},
-            {axis: "y", start: 40, class:'regionY3'}
+        var scatterchart = c3.generate({
+            bindto: '#scatterchart',
+            data: {
+                columns:
+                    [
+                        ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
 
-        ],
-        point: {
-            r: 9
-        },
-        axis: {
-            x: {
-                type: 'category',
-                categories: ['you ate that?', 'damn, youre skilled ', 'wow ethan great job', 'big man over here', 'wanker', 'whoa', 'Has Anyone Really Been Far Even as Decided to Look More Like?', 'you what m8', 'i cant believe youve done this']
-
-            },
-        }
-
-    });
-
-    var donutchart = c3.generate({
-        bindto:'#donutchart',
-        data: {
-            columns: [
-                ['Negative', 5],
-                ['Positive', 70],
-                ['Neutral', 25],
-            ],
-            type : 'donut',
-            colors: {
-                MostNegative: '#FF0000',
-                MostPositive: '#0000FF',
-                Neutral: '#C0C0C0'
-            },
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-        },
-    });
-
-    var barchart = c3.generate({
-        bindto: '#wordChart',
-        color: {
-            pattern: ['#fea3aa', '#f8b88b', '#faf884', '#baed91', '#b2cefe', '#f2a2e8']
-        },
-        data: {
-            x: 'comments',
-            columns:[
-                        ['comments', 'video', 'film', 'like', 'looks', 'just', 'see'],
-                        ['Word_Frequency_In_Percents_during_1_1_2017_to_12_31_2017', 15, 14, 13, 13, 7, 2]
                     ],
-            type: 'bar',
-           
-            color: function(inColor, data) {
-                var colors = ['#fea3aa', '#f8b88b', '#faf884', '#baed91', '#b2cefe', '#f2a2e8'];
-                if(data.index !== undefined) {
-                    return colors[data.index];
-                }
+                type: 'scatter'
+            },
+            regions: [
+                { axis: "y", end: -40, class: 'regionY' },
+                { axis: "y", start: 40, end: 40, class: 'regionY2' },
+                { axis: "y", start: 40, class: 'regionY3' }
 
-                return inColor;
+            ],
+            point: {
+                r: 9
+            },
+            axis: {
+                x: {
+                    type: 'category',
+                    categories: ['you ate that?', 'damn, youre skilled ', 'wow ethan great job', 'big man over here', 'wanker', 'whoa', 'Has Anyone Really Been Far Even as Decided to Look More Like?', 'you what m8', 'i cant believe youve done this']
+
+                },
             }
-        },
-        axis: {
-            rotated: true,
-            x: {
-                type: 'category'
+
+        });
+
+        var donutchart = c3.generate({
+            bindto: '#donutchart',
+            data: {
+                columns: [
+                    ['Negative', 5],
+                    ['Positive', 70],
+                    ['Neutral', 25],
+                ],
+                type: 'donut',
+                colors: {
+                    MostNegative: '#FF0000',
+                    MostPositive: '#0000FF',
+                    Neutral: '#C0C0C0'
+                },
+                onclick: function (d, i) { console.log("onclick", d, i); },
+                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            },
+        });
+
+        var barchart = c3.generate({
+            bindto: '#phraseChart',
+            color: {
+                pattern: ['#fea3aa', '#f8b88b', '#faf884', '#baed91', '#b2cefe', '#f2a2e8']
+            },
+            data: {
+                x: 'phrases',
+                columns: [
+                    ['phrases', 'great video', 'nice film', 'like you', 'looks great', 'just in time', 'can\'t wait'],
+                    ['Most Commonly Used Phrases', 15, 14, 13, 13, 7, 2]
+                ],
+                type: 'bar',
+
+                color: function (inColor, data) {
+                    var colors = ['#fea3aa', '#f8b88b', '#faf884', '#baed91', '#b2cefe', '#f2a2e8'];
+                    if (data.index !== undefined) {
+                        return colors[data.index];
+                    }
+
+                    return inColor;
+                }
+            },
+            axis: {
+                rotated: true,
+                x: {
+                    type: 'category'
+                }
             }
-        }
-    });
+        });
     </script>
 </body>
 
 </html>
-        
