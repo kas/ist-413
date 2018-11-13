@@ -54,7 +54,7 @@
                         <div id="donut-chart-1"></div>
                         <h2>Comment Sentiments of Individual Comments</h2>
                         <div id='scatter-chart-1'></div>
-                        <h2>Most Frequently Used Words</h2>
+                        <h2>Most Frequently Used Phrases</h2>
                         <div id='bar-chart-1'></div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                         <div id="donut-chart-2"></div>
                         <h2>Comment Sentiments of Individual Comments</h2>
                         <div id='scatter-chart-2'></div>
-                        <h2>Most Frequently Used Words</h2>
+                        <h2>Most Frequently Used Phrases</h2>
                         <div id='bar-chart-2'></div>
                     </div>
                 </div>
@@ -106,8 +106,8 @@
             data: {
                 x: 'comments',
                 columns: [
-                    ['comments', 'video', 'film', 'like', 'looks', 'just', 'see'],
-                    ['Word_Frequency_In_Percents_during_1_1_2017_to_12_31_2017', 15, 14, 13, 13, 7, 2]
+                    ['comments', 'good audio', 'like you', 'nice hair', 'so funny', 'really good', 'great skills'],
+                    ['Most Frequently Used Phrases', 15, 14, 13, 13, 7, 2]
                 ],
                 type: 'bar',
                 color: function (inColor, data) {
@@ -133,8 +133,8 @@
             data: {
                 x: 'comments',
                 columns: [
-                    ['comments', 'video', 'film', 'like', 'looks', 'just', 'see'],
-                    ['Word_Frequency_In_Percents_during_1_1_2017_to_12_31_2017', 15, 14, 13, 13, 7, 2]
+                    ['comments', 'don\'t like 140p', 'crappy', 'try again next time', 'just terrible', 'hate this', 'see ya later, fool'],
+                    ['Most Frequently Used Phrases', 15, 14, 13, 13, 7, 2]
                 ],
                 type: 'bar',
                 color: function (inColor, data) {
@@ -162,8 +162,8 @@
                 ],
                 type: 'donut',
                 colors: {
-                    MostNegative: '#FF0000',
-                    MostPositive: '#0000FF',
+                    Negative: '#FF0000',
+                    Positive: '#0000FF',
                     Neutral: '#C0C0C0'
                 },
                 onclick: function (d, i) { console.log("onclick", d, i); },
@@ -175,14 +175,14 @@
             bindto: '#donut-chart-2',
             data: {
                 columns: [
-                    ['Negative', 70],
-                    ['Positive', 5],
-                    ['Neutral', 25],
+                    ['Negative', 60],
+                    ['Positive', 22],
+                    ['Neutral', 18],
                 ],
                 type: 'donut',
                 colors: {
-                    MostNegative: '#FF0000',
-                    MostPositive: '#0000FF',
+                    Negative: '#FF0000',
+                    Positive: '#0000FF',
                     Neutral: '#C0C0C0'
                 },
                 onclick: function (d, i) { console.log("onclick", d, i); },
