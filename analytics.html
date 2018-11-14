@@ -49,11 +49,11 @@
         <input type="text" class="datepicker">
         <p>End date for Below Analyses (optional)</p>
         <input type="text" class="datepicker">
-        <h2>Comment Sentiments of Individual Comments</h2>
+        <h2>Comment Sentiments Over Time</h2>
         <div id='scatterchart'></div>
-        <p>Sentiment Analysis is the process of determining whether a piece of writing is positive, negative or
-            neutral. ... Sentiment analysis helps data analysts within large enterprises gauge public opinion, conduct
-            nuanced market research, monitor brand and product reputation, and understand customer experiences.</p>
+        <p> BLUE MEANS POSITIVE FEELINGS, WHITE NEUTRAL FEELINGS, RED NEGATIVE FEELINGS.</p>
+        <p> Sentiment Analysis is the process of determining whether a piece of writing is positive, negative or
+            neutral.</p>
         <h2>Most Frequently Used Phrases</h2>
         <div id='phraseChart'></div>
         <p>Find the most frequently used phrases.</p>
@@ -74,10 +74,10 @@
             data: {
                 columns:
                     [
-                        ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
+                        ['comments during 2018-01-01 to 2018-02-26', 50, 55, 50, 45, 50, 35, 43, -36, -43]
 
                     ],
-                type: 'scatter'
+                type: 'line'
             },
             regions: [
                 { axis: "y", end: -40, class: 'regionY' },
@@ -91,7 +91,8 @@
             axis: {
                 x: {
                     type: 'category',
-                    categories: ['you ate that?', 'damn, youre skilled ', 'wow ethan great job', 'big man over here', 'wanker', 'whoa', 'Has Anyone Really Been Far Even as Decided to Look More Like?', 'you what m8', 'i cant believe youve done this']
+                    categories: ['Jan 1-7', 'Jan 7-14', 'Jan 14-21', 'Jan 21-28', 'Jan 29-Feb 5', 'Feb 5-12', 'Feb 12-19',
+                    'Feb 19-26','Feb 26-March 4']
 
                 },
             }

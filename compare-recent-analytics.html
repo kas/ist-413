@@ -52,7 +52,7 @@
                         </ul>
                         <h2 class="center-align">Overall Comment Sentiment</h2>
                         <div id="donut-chart-1"></div>
-                        <h2>Comment Sentiments of Individual Comments</h2>
+                        <h2>Comment Sentiments Over Time</h2>
                         <div id='scatter-chart-1'></div>
                         <h2>Most Frequently Used Phrases</h2>
                         <div id='bar-chart-1'></div>
@@ -85,7 +85,7 @@
                         </ul>
                         <h2 class="center-align">Overall Comment Sentiment</h2>
                         <div id="donut-chart-2"></div>
-                        <h2>Comment Sentiments of Individual Comments</h2>
+                        <h2>Comment Sentiments Over Time</h2>
                         <div id='scatter-chart-2'></div>
                         <h2>Most Frequently Used Phrases</h2>
                         <div id='bar-chart-2'></div>
@@ -133,8 +133,8 @@
             data: {
                 x: 'comments',
                 columns: [
-                    ['comments', 'don\'t like 140p', 'crappy', 'try again next time', 'just terrible', 'hate this', 'see ya later, fool'],
-                    ['Most Frequently Used Phrases', 15, 14, 13, 13, 7, 2]
+                    ['comments',  'crappy', 'don\'t like 140p','try again next time', 'just terrible', 'hate this', 'see ya later, fool'],
+                    ['Most Frequently Used Phrases', 20, 11, 9, 5, 5, 2]
                 ],
                 type: 'bar',
                 color: function (inColor, data) {
@@ -195,9 +195,10 @@
             data: {
                 columns:
                     [
-                        ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83]
+                        ['comments during 2018-01-01 to 2018-02-26', 50, 55, 50, 45, 50, 35, 43, -36, -43]
+
                     ],
-                type: 'scatter'
+                type: 'line'
             },
             regions: [
                 { axis: "y", end: -40, class: 'regionY' },
@@ -211,18 +212,23 @@
             axis: {
                 x: {
                     type: 'category',
-                    categories: ['you ate that?', 'damn, youre skilled ', 'wow ethan great job', 'big man over here', 'wanker', 'whoa', 'i cant believe youve done this']
+                    categories: ['Jan 1-7', 'Jan 7-14', 'Jan 14-21', 'Jan 21-28', 'Jan 29-Feb 5', 'Feb 5-12', 'Feb 12-19',
+                    'Feb 19-26','Feb 26-March 4']
+
                 },
             }
+
         });
+
         var scatterChart2 = c3.generate({
             bindto: '#scatter-chart-2',
             data: {
                 columns:
                     [
-                        ['comments during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83]
+                        ['comments during 2018-01-01 to 2018-02-26', -88, -74, -84, -82, -69, -83, -84, -99, -84]
+
                     ],
-                type: 'scatter'
+                type: 'line'
             },
             regions: [
                 { axis: "y", end: -40, class: 'regionY' },
@@ -236,11 +242,13 @@
             axis: {
                 x: {
                     type: 'category',
-                    categories: ['you ate that?', 'damn, youre skilled ', 'wow ethan great job', 'big man over here', 'wanker', 'whoa', 'you what m8']
+                    categories: ['Jan 1-7', 'Jan 7-14', 'Jan 14-21', 'Jan 21-28', 'Jan 29-Feb 5', 'Feb 5-12', 'Feb 12-19',
+                    'Feb 19-26','Feb 26-March 4']
+
                 },
             }
-        });
-    </script>
+
+        });    </script>
 </body>
 
 </html>
