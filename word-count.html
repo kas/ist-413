@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tuber</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css.css">
+        <!-- Load c3.css -->
+    <link href="javascript/c3-0.6.8/c3.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Tuber</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="your-account.html">Your Account</a></li>
+                    <li><a href="your-videos.html">Your Videos</a></li>
+                    <li><a href="recent-analytics.html">Recent Analytics</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class = "container">
+        <h1>Word Count</h1>
+         <p>Find the most used words that are not stopwords. Stopwords are commonly used words like: the, about, into</p>
+         <hr>
+         <p>Start date for Word Count.</p>
+        <input type="text" class="datepicker">
+        <p>End date for Word Count.</p>
+        <input type="text" class="datepicker">
+        <div id='chart'>
+
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Load d3.js and c3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="javascript/c3-0.6.8/c3.min.js"></script>
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems);
+    });
+
+    var chart = c3.generate({
+        data: {
+            columns: [
+                ['data1', 30, 200, 100, 400, 150, 250],
+            ],
+            types: {
+                data1: 'bar',
+            }
+        },
+        axis: {
+            rotated: true,
+            x: {
+                type: 'category',
+                categories: ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6']
+            }
+        }
+
+    });
+
+              
+
+    </script>
+</body>
+
+</html>
+        

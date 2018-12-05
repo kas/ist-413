@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tuber</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="css.css">
+        <!-- Load c3.css -->
+    <link href="javascript/c3-0.6.8/c3.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Tuber</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="your-account.html">Your Account</a></li>
+                    <li><a href="your-videos.html">Your Videos</a></li>
+                    <li><a href="recent-analytics.html">Recent Analytics</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class = "container">
+        <h1>Comment Sentiment Analysis</h1>
+
+         <p>Start date for Comment Sentiment.</p>
+        <input type="text" class="datepicker">
+        <p>End date for Comment Sentiment.</p>
+        <input type="text" class="datepicker">
+        <a id="btnAddColumn" class="waves-effect waves-light btn">Add</a>
+        <hr>
+        <div id='chart'>
+
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Load d3.js and c3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="javascript/c3-0.6.8/c3.min.js"></script>
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems);
+    });
+
+              
+    var chart = c3.generate({
+        bindto:'#chart',
+        data: {
+            columns: [
+            ],
+            type: 'line'
+        },
+        regions: [
+            {start:0, end:1},
+            {start:2, end:4, class:'foo'}
+        ]
+        bar: {
+            width: {
+                ratio: 0.5 // this makes bar width 50% of length between ticks
+            }
+            // or
+            //width: 100 // this makes bar width 100px
+        }
+    });
+
+    document.getElementById("btnAddColumn").addEventListener('click', e=>{
+        chart.load({
+            columns: [
+                 ['comment ID# during 1/1/2017-12/31/2017', 65, -75, 100, 20, -100, 50, 83, 6, 43]
+            ]
+        });
+    }, 1000);
+    </script>
+</body>
+
+</html>
+        
